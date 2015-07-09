@@ -1,0 +1,229 @@
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using System.Collections.Generic;
+
+namespace AspectStar
+{
+    /// <summary>
+    /// This is the main type for your game.
+    /// </summary>
+    public class Game1 : Game
+    {
+        GraphicsDeviceManager graphics;
+        SpriteBatch spriteBatch;
+
+        private Player player;
+        private int fireLag = 0;
+
+        Texture2D texBullet;
+        List<Bullet> bulletList = new List<Bullet>();
+
+        List<Enemy> enemyList = new List<Enemy>();
+
+        public Map currentMap;
+
+        public enum Aspects
+        {
+            Blue = 0,
+            Green = 1,
+            Red = 2,
+            None = 255
+        }
+        
+        public enum Directions
+        {
+            Up = 1,
+            Down = 0,
+            Left = 2,
+            Right = 3
+        }
+
+        public Game1()
+        {
+            graphics = new GraphicsDeviceManager(this);
+            Content.RootDirectory = "Content";
+        }
+
+        /// <summary>
+        /// Allows the game to perform any initialization it needs to before starting to run.
+        /// This is where it can query for any required services and load any non-graphic
+        /// related content.  Calling base.Initialize will enumerate through any components
+        /// and initialize them as well.
+        /// </summary>
+        protected override void Initialize()
+        {
+            // TODO: Add your initialization logic here
+
+            base.Initialize();
+        }
+
+        /// <summary>
+        /// LoadContent will be called once per game and is the place to load
+        /// all of your content.
+        /// </summary>
+        protected override void LoadContent()
+        {
+            // Create a new SpriteBatch, which can be used to draw textures.
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            // TODO: use this.Content to load your game content here
+            Texture2D texNadine = Content.Load<Texture2D>("nadine_3col");
+            texBullet = Content.Load<Texture2D>("bullets");
+            Texture2D testMap = Content.Load<Texture2D>("test_map");
+            Texture2D evilfairy = Content.Load<Texture2D>("evilfairy");
+
+            // Load sound effects
+            PlaySound.thud = Content.Load<SoundEffect>("thud"); // from pdsounds.org, which claims to be public domain
+            PlaySound.pew = Content.Load<SoundEffect>("pew"); // Made it myself in sfxr
+            PlaySound.aspect = Content.Load<SoundEffect>("aspect"); // Made it myself in sfxr
+            PlaySound.boom = Content.Load<SoundEffect>("boom"); // Made it myself in sfxr
+            PlaySound.Initialize();
+
+            // Create enemy definitions
+            EnemyDef fairy = new EnemyDef();
+            fairy.texture = evilfairy;
+
+            // Create the map
+            int[] key = { 0, 1, 2, 3, 4 };
+            currentMap = new Map(testMap, key);
+
+            // Load in player
+            player = new Player(texNadine, new Vector2(400,200), currentMap);
+
+            // Toss in an enemy
+            enemyList.Add(new Enemy(fairy, new Vector2(100, 100), currentMap));
+
+            // Play music (TODO: replace with actual music that preferably isn't copyrighted)
+            Song smb3 = Content.Load<Song>("smb3_koopasroad");
+            MediaPlayer.IsRepeating = true;
+            //MediaPlayer.Play(smb3);
+        }
+
+        /// <summary>
+        /// UnloadContent will be called once per game and is the place to unload
+        /// game-specific content.
+        /// </summary>
+        protected override void UnloadContent()
+        {
+            // TODO: Unload any non ContentManager content here
+        }
+
+        /// <summary>
+        /// Allows the game to run logic such as updating the world,
+        /// checking for collisions, gathering input, and playing audio.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        protected override void Update(GameTime gameTime)
+        {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
+            // Get input
+            KeyboardState state = Keyboard.GetState();
+
+            if (state.IsKeyDown(Keys.Up))
+            {
+                player.moving = true;
+                player.faceDir = Directions.Up;
+            }
+            else if (state.IsKeyDown(Keys.Down))
+            {
+                player.moving = true;
+                player.faceDir = Directions.Down;
+            }
+            else if (state.IsKeyDown(Keys.Left))
+            {
+                player.moving = true;
+                player.faceDir = Directions.Left;
+            }
+            else if (state.IsKeyDown(Keys.Right))
+            {
+                player.moving = true;
+                player.faceDir = Directions.Right;
+            }
+            else
+            {
+                player.moving = false;
+            }
+
+            // Firing a bullet
+            if (fireLag == 0)
+            {
+                if (state.IsKeyDown(Keys.Space))
+                {
+                    bulletList.Add(player.Fire());
+                    fireLag = 8;
+                }
+            }
+            else
+                fireLag--;
+
+            // 1-body problems
+            player.Update();
+            foreach (Enemy i in enemyList)
+                i.Update();
+            foreach (Bullet i in bulletList)
+                i.Update();
+
+            // 2-body problems
+
+            foreach (Bullet i in bulletList)
+            {
+                foreach (Enemy j in enemyList)
+                {
+                    if (j.Overlap(i.location))
+                    {
+                        i.inert = true;
+                        if (j.takeDamage(i.aspect))
+                        {
+                            j.inert = true;
+                            PlaySound.Boom();
+                        }
+                        else
+                            PlaySound.Thud();
+                    }
+                }
+            }
+
+            // Clean up
+            enemyList.RemoveAll(isInertEnemy);
+            bulletList.RemoveAll(isInertBullet);
+
+            base.Update(gameTime);
+        }
+
+        /// <summary>
+        /// This is called when the game should draw itself.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        protected override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(Color.Black);
+
+            // TODO: Add your drawing code here
+            currentMap.Draw(spriteBatch);
+            player.Draw(spriteBatch);
+            foreach (Enemy i in enemyList)
+                i.Draw(spriteBatch);
+            foreach (Bullet i in bulletList)
+                i.Draw(spriteBatch, texBullet);
+
+            base.Draw(gameTime);
+        }
+
+        // Search predicates
+
+        private static bool isInertEnemy(Enemy e)
+        {
+            return e.inert;
+        }
+
+        private static bool isInertBullet(Bullet b)
+        {
+            return b.inert;
+        }
+    }
+}

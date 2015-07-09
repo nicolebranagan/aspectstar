@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/nadine_3col.png</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/bullets.png</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/test_map.png</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/thud.mp3</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/pew.wav</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/aspect.wav</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/evilfairy.png</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/boom.wav</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/bigmouse.png</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/testSprite.spritefont</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/die.wav</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/win.wav</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/birdie_3col.png</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/baddog.png</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/factory_map.png</File>
+  </SourceFiles>
+</SourceFileCollection>
