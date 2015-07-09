@@ -23,6 +23,8 @@ namespace AspectStar
 
         static public SoundEffect win;
 
+        static public SoundEffect pause;
+
         static public void Initialize()
         {
             thud_inst = thud.CreateInstance();
@@ -63,6 +65,11 @@ namespace AspectStar
             if (pew_inst.State == SoundState.Playing)
                 pew_inst.Stop();
             win.Play();
+        }
+
+        static public void Pause()
+        {
+            pause.Play();
         }
     }
 }

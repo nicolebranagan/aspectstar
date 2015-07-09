@@ -69,12 +69,13 @@ namespace AspectStar
             // TODO: use this.Content to load your game content here
 
             // Load sound effects
-            PlaySound.thud = Content.Load<SoundEffect>("thud"); // from pdsounds.org, which claims to be public domain
-            PlaySound.pew = Content.Load<SoundEffect>("pew"); // Made it myself in sfxr
-            PlaySound.aspect = Content.Load<SoundEffect>("aspect"); // Made it myself in sfxr
-            PlaySound.boom = Content.Load<SoundEffect>("boom"); // Made it myself in sfxr
-            PlaySound.die = Content.Load<SoundEffect>("die"); // Made it myself in sfxr
-            PlaySound.win = Content.Load<SoundEffect>("win"); // Made it myself in sfxr
+            PlaySound.thud = Content.Load<SoundEffect>("thud"); // Hitting walls, failed bullet; from pdsounds.org, which claims to be public domain
+            PlaySound.pew = Content.Load<SoundEffect>("pew"); // Shooting sound effect; Made it myself in sfxr
+            PlaySound.aspect = Content.Load<SoundEffect>("aspect"); // Changing color aspect; Made it myself in sfxr
+            PlaySound.boom = Content.Load<SoundEffect>("boom"); // Enemy defeated; Made it myself in sfxr
+            PlaySound.die = Content.Load<SoundEffect>("die"); // Death chime; Made it myself in sfxr
+            PlaySound.win = Content.Load<SoundEffect>("win"); // Level victory chime; Made it myself in sfxr
+            PlaySound.pause = Content.Load<SoundEffect>("pause"); // Pause chime; Made it myself in sfxr
             PlaySound.Initialize();
 
             // Load relevant content

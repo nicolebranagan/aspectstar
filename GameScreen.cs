@@ -31,9 +31,11 @@ namespace AspectStar
             DeathAnim,
             WinAnim,
             FadeIn,
+            Paused,
         }
 
         int animCount = 50;
+        bool stallpause = false;
 
         GameState runState;
 
@@ -71,6 +73,19 @@ namespace AspectStar
         {
             switch (this.runState)
             {
+                case GameState.Paused:
+                    if (this.animCount == 0)
+                        this.animCount = 80;
+                    else animCount--;
+                    KeyboardState state = Keyboard.GetState();
+                    if (state.IsKeyUp(Keys.Enter))
+                        stallpause = false;
+                    if (state.IsKeyDown(Keys.Enter) && !stallpause)
+                    {
+                        stallpause = true;
+                        runState = GameState.Playing;
+                    }
+                    break;
                 case GameState.FadeIn:
                     this.animCount = this.animCount - 1;
                     if (this.animCount == 0)
@@ -148,6 +163,17 @@ namespace AspectStar
             else
                 fireLag--;
 
+            // Pausing
+            if (state.IsKeyDown(Keys.Enter) & !stallpause)
+            {
+                animCount = 0;
+                this.runState = GameState.Paused;
+                stallpause = true;
+                PlaySound.Pause();
+            }
+            if (stallpause & state.IsKeyUp(Keys.Enter))
+                stallpause = false;
+
             // 1-body problems
             player.Update();
             foreach (Enemy i in enemyList)
@@ -203,6 +229,21 @@ namespace AspectStar
         {
             switch (runState)
             {
+                case GameState.Paused:
+                    Color pauseMask = Color.White;
+                    if (animCount > 40)
+                        pauseMask.R = 0;
+                    currentMap.Draw(spriteBatch, pauseMask);
+                    // Draw lives
+                    spriteBatch.Begin();
+                    for (int i = this.lives; i > 0; i--)
+                    {
+                        Rectangle sourceRectangle = new Rectangle(0, 32 * (int)(player.aspect), 32, 32);
+                        Rectangle destRectangle = new Rectangle((800 - (i * 32)), (480 - 32), 32, 32);
+                        spriteBatch.Draw(Game1.texCollection.texNadine, destRectangle, sourceRectangle, Color.White);
+                    }
+                    spriteBatch.End();
+                    break;
                 case GameState.FadeIn:
                     Color mask4 = Color.White;
                     mask4.R = (byte)(mask4.R - (animCount * (255 / 50)));
