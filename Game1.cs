@@ -15,8 +15,6 @@ namespace AspectStar
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private SpriteFont gameFont;
-
         public static Textures texCollection;
 
         Screen currentMode;
@@ -87,12 +85,11 @@ namespace AspectStar
             texCollection.texMouse = Content.Load<Texture2D>("bigmouse");
             texCollection.texBaddog = Content.Load<Texture2D>("baddog");
             texCollection.texBirdie = Content.Load<Texture2D>("birdie_3col");
+            texCollection.arcadeFont = Content.Load<Texture2D>("arcadefont");
 
             EnemyDict.build();
 
-            gameFont = Content.Load<SpriteFont>("testSprite");
-
-            currentMode = new TitleScreen(this, gameFont, "Press Start!");
+            currentMode = new TitleScreen(this, "ASPECT STAR", texCollection.arcadeFont, new Vector2((800 / 2) - (11 * 8), 200));
         }
 
         public void Start()
@@ -102,12 +99,12 @@ namespace AspectStar
 
         public void GameOver()
         {
-            currentMode = new TitleScreen(this, gameFont, "Game over. Press Start to play again.");
+            currentMode = new TitleScreen(this, "GAME OVER", texCollection.arcadeFont, new Vector2((800 / 2) - (9 * 8), 200));
         }
 
         public void YouWin()
         {
-            currentMode = new TitleScreen(this, gameFont, "You win! Press Start to play again.");
+            currentMode = new TitleScreen(this, "CONGRATULATION", texCollection.arcadeFont, new Vector2((800 / 2) - (14 * 8), 200));
         }
 
         /// <summary>
@@ -150,6 +147,9 @@ namespace AspectStar
 
     public struct Textures
     {
+        // Game textures
+        public Texture2D arcadeFont;
+
         // Player textures
         public Texture2D texNadine;
         public Texture2D texBullet;

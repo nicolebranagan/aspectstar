@@ -33,7 +33,6 @@ C:\Users\Nicole\Documents\Visual Studio 2015\Projects\AspectStar\AspectStar\bin\
 C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\evilfairy.xnb
 C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\boom.xnb
 C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\bigmouse.xnb
-C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\testSprite.xnb
 C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\die.xnb
 C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\win.xnb
 C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\baddog.xnb
@@ -41,3 +40,4 @@ C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\
 C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\factory_map.xnb
 C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\pause.xnb
 C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\space_map.xnb
+C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\arcadefont.xnb

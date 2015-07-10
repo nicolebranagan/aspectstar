@@ -92,12 +92,6 @@
 /processorParam:TextureFormat=Color
 /build:bigmouse.png
 
-#begin testSprite.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
-/build:testSprite.spritefont
-
 #begin die.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -159,4 +153,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
 /build:space_map.png
+
+#begin arcadefont.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:TextureFormat=Color
+/build:arcadefont.png
 

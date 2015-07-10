@@ -13,7 +13,6 @@
     <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/evilfairy.png</File>
     <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/boom.wav</File>
     <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/bigmouse.png</File>
-    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/testSprite.spritefont</File>
     <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/die.wav</File>
     <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/win.wav</File>
     <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/birdie_3col.png</File>
@@ -21,5 +20,6 @@
     <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/factory_map.png</File>
     <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/pause.wav</File>
     <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/space_map.png</File>
+    <File>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/arcadefont.png</File>
   </SourceFiles>
 </SourceFileCollection>
