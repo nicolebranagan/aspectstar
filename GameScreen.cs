@@ -98,7 +98,7 @@ namespace AspectStar
                         this.animCount = this.animCount - 2;
                     if (this.animCount == 0)
                     {
-                        if (this.lives == 1)
+                        if (this.lives == 0)
                             this.game.GameOver();
                         else
                         {

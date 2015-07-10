@@ -40,3 +40,4 @@ C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\
 C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\birdie_3col.xnb
 C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\factory_map.xnb
 C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\pause.xnb
+C:\Users\Nicole\documents\visual studio 2015\Projects\AspectStar\AspectStar\bin\Windows\Debug\Content\space_map.xnb

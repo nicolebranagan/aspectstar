@@ -83,6 +83,7 @@ namespace AspectStar
             texCollection.texBullet = Content.Load<Texture2D>("bullets");
             texCollection.testMap = Content.Load<Texture2D>("test_map");
             texCollection.factoryMap = Content.Load<Texture2D>("factory_map");
+            texCollection.spaceMap = Content.Load<Texture2D>("space_map");
             texCollection.texMouse = Content.Load<Texture2D>("bigmouse");
             texCollection.texBaddog = Content.Load<Texture2D>("baddog");
             texCollection.texBirdie = Content.Load<Texture2D>("birdie_3col");
@@ -149,10 +150,16 @@ namespace AspectStar
 
     public struct Textures
     {
+        // Player textures
         public Texture2D texNadine;
         public Texture2D texBullet;
+
+        // Map textures
         public Texture2D testMap;
         public Texture2D factoryMap;
+        public Texture2D spaceMap;
+
+        // Enemy textures
         public Texture2D texMouse;
         public Texture2D texBaddog;
         public Texture2D texBirdie;
