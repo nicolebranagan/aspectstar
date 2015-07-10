@@ -130,7 +130,7 @@ namespace AspectStar
             Vector2 dest = location + move_vec;
             if (currentMap.squareSolid(dest))
             {
-                PlaySound.Thud();
+                if (!this.identity.light) PlaySound.Thud();
             }
             else
             {
@@ -174,6 +174,7 @@ namespace AspectStar
         public int beIndecisive; // Greater, more likely to change direction
         public int beWanderer; // Greater, more likely to not chase player
         public int beSlow; // greater, moves less often
+        public bool light; // true, doesn't thud when hits wall
     }
 
     public static class EnemyDict
@@ -189,21 +190,25 @@ namespace AspectStar
             bird.beIndecisive = 2; // bird-brain
             bird.beWanderer = 4;
             bird.beSlow = 1;
+            bird.light = true;
 
             mouse.texture = Game1.texCollection.texMouse;
             mouse.beIndecisive = 1;
             mouse.beWanderer = 1;
             mouse.beSlow = 3;
+            mouse.light = false;
 
             smartmouse.texture = Game1.texCollection.texMouse;
             smartmouse.beIndecisive = 1;
             smartmouse.beWanderer = 0;
             smartmouse.beSlow = 2;
+            smartmouse.light = false;
 
             dog.texture = Game1.texCollection.texBaddog;
             dog.beIndecisive = 0;
             dog.beWanderer = 0;
             dog.beSlow = 1;
+            dog.light = false;
         }
     }
 }

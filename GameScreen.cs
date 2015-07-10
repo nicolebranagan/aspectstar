@@ -75,7 +75,7 @@ namespace AspectStar
             {
                 case GameState.Paused:
                     if (this.animCount == 0)
-                        this.animCount = 80;
+                        this.animCount = 120;
                     else animCount--;
                     KeyboardState state = Keyboard.GetState();
                     if (state.IsKeyUp(Keys.Enter))
@@ -231,8 +231,12 @@ namespace AspectStar
             {
                 case GameState.Paused:
                     Color pauseMask = Color.White;
-                    if (animCount > 40)
+                    if (animCount > 80)
                         pauseMask.R = 0;
+                    else if (animCount > 40)
+                        pauseMask.G = 0;
+                    else
+                        pauseMask.B = 0;
                     currentMap.Draw(spriteBatch, pauseMask);
                     // Draw lives
                     spriteBatch.Begin();
