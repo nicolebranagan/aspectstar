@@ -74,7 +74,7 @@ namespace AspectStar
                     }
                     else if (this.selection == 1)
                     {
-                        drawCursor(spriteBatch, new Vector2(128 - (4 * 16), 64 + 3 * 16));
+                        drawCursor(spriteBatch, new Vector2(128 - (4 * 16), 64 + 3 * 16 - 8));
                     }
 
                     break;
@@ -82,6 +82,7 @@ namespace AspectStar
                     WriteText(spriteBatch, "ASPECT STAR", new Vector2((800 / 2) - (11 * 8), 128), Color.White);
                     WriteText(spriteBatch, "PLAY", new Vector2(376, (128 + 4 * 16)), Color.White);
                     WriteText(spriteBatch, "OPTIONS", new Vector2(376, (128 + 7 * 16)), Color.White);
+                    WriteText(spriteBatch, "2015 NICOLE", new Vector2(376 - (4*16), (128 + 10 * 16)), Color.White);
 
                     if (this.selection == 0)
                         drawCursor(spriteBatch, new Vector2(376 - (4 * 16), 128 + 4 * 16 - 8));
