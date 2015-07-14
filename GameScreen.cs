@@ -92,7 +92,7 @@ namespace AspectStar
                         this.runState = GameState.Playing;
                     break;
                 case GameState.DeathAnim:
-                    if (this.lives == 1)
+                    if (this.lives == 0)
                         this.animCount = this.animCount - 1;
                     else
                         this.animCount = this.animCount - 2;

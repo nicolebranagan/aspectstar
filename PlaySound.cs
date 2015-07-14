@@ -8,6 +8,8 @@ namespace AspectStar
 {
     static public class PlaySound
     {
+        static public bool Enabled = true;
+
         static public SoundEffect thud;
         static SoundEffectInstance thud_inst;
 
@@ -34,42 +36,46 @@ namespace AspectStar
 
         static public void Thud()
         {
-            if (thud_inst.State != SoundState.Playing)
+            if (Enabled && (thud_inst.State != SoundState.Playing))
                 thud_inst.Play();
         }
 
         static public void Pew()
         {
-            if (pew_inst.State != SoundState.Playing)
+            if (Enabled && (pew_inst.State != SoundState.Playing))
                 pew_inst.Play();
         }
 
         static public void Aspect()
         {
-            aspect.Play();
+            if (Enabled)
+                aspect.Play();
         }
         
         static public void Boom()
         {
-            if (boom_inst.State != SoundState.Playing)
+            if (Enabled && (boom_inst.State != SoundState.Playing))
                 boom_inst.Play();
         }
 
         static public void Die()
         {
-            die.Play();
+            if (Enabled)
+                die.Play();
         }
 
         static public void Win()
         {
             if (pew_inst.State == SoundState.Playing)
                 pew_inst.Stop();
-            win.Play();
+            if (Enabled)
+                win.Play();
         }
 
         static public void Pause()
         {
-            pause.Play();
+            if (Enabled)
+                pause.Play();
         }
     }
 }

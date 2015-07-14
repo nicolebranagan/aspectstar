@@ -66,15 +66,28 @@ namespace AspectStar
                     WriteText(spriteBatch, "SHOOT", new Vector2(256, 64 + optOffset * 16), (selection == 105) ? Color.Red : Color.DarkGray);
 
                     optOffset = optOffset + 4;
+                    if (PlaySound.Enabled)
+                        WriteText(spriteBatch, "SOUND EFFECTS ON", new Vector2(128, 64 + optOffset * 16), Color.White);
+                    else
+                        WriteText(spriteBatch, "SOUND EFFECTS OFF", new Vector2(128, 64 + optOffset * 16), Color.White);
+
+                    optOffset = optOffset + 4;
                     WriteText(spriteBatch, "RETURN TO TITLE", new Vector2(128, 64 + optOffset * 16), Color.White);
 
                     if (this.selection == 0)
                     {
+                        // RETURN TO TITLE
                         drawCursor(spriteBatch, new Vector2(128 - (4*16), 64 + optOffset * 16 - 8));
                     }
                     else if (this.selection == 1)
                     {
+                        // SET CONTROLS
                         drawCursor(spriteBatch, new Vector2(128 - (4 * 16), 64 + 3 * 16 - 8));
+                    }
+                    else if (this.selection == 2)
+                    {
+                        // SOUND EFFECTS
+                        drawCursor(spriteBatch, new Vector2(128 - (4 * 16), 64 + (optOffset - 4) * 16 - 8));
                     }
 
                     break;
@@ -152,24 +165,34 @@ namespace AspectStar
                             {
                                 // If you add more than two options, make sure that this is changed appropriately
                                 this.controlLag = 16;
-                                this.selection++;
-                                if (this.selection > 1)
+                                if (state.IsKeyDown(Keys.Up))
+                                    this.selection--;
+                                if (state.IsKeyDown(Keys.Down))
+                                    this.selection++;
+                                if (this.selection > 2)
                                     this.selection = 0;
+                                if (this.selection < 0)
+                                    this.selection = 2;
                             }
                             else if (state.IsKeyDown(Keys.Enter))
                             {
                                 PlaySound.Pause();
+                                this.controlLag = 16;
                                 if (this.selection == 0)
                                 {
+                                    // Return to title screen
                                     this.selection = 0;
                                     this.runState = TitleState.TitleScreen;
-                                    this.controlLag = 16;
                                 }
                                 else if (this.selection == 1)
                                 {
                                     // Go into control-setting mode
                                     this.selection = 101;
-                                    this.controlLag = 16;
+                                }
+                                else if (this.selection ==2)
+                                {
+                                    // Change sound effects
+                                    PlaySound.Enabled = !(PlaySound.Enabled);
                                 }
                             }
                         }
