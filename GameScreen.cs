@@ -126,22 +126,22 @@ namespace AspectStar
             // Get input
             KeyboardState state = Keyboard.GetState();
 
-            if (state.IsKeyDown(Keys.Up))
+            if (state.IsKeyDown(Game1.controls.Up))
             {
                 player.moving = true;
                 player.faceDir = Game1.Directions.Up;
             }
-            else if (state.IsKeyDown(Keys.Down))
+            else if (state.IsKeyDown(Game1.controls.Down))
             {
                 player.moving = true;
                 player.faceDir = Game1.Directions.Down;
             }
-            else if (state.IsKeyDown(Keys.Left))
+            else if (state.IsKeyDown(Game1.controls.Left))
             {
                 player.moving = true;
                 player.faceDir = Game1.Directions.Left;
             }
-            else if (state.IsKeyDown(Keys.Right))
+            else if (state.IsKeyDown(Game1.controls.Right))
             {
                 player.moving = true;
                 player.faceDir = Game1.Directions.Right;
@@ -154,7 +154,7 @@ namespace AspectStar
             // Firing a bullet
             if (fireLag == 0)
             {
-                if (state.IsKeyDown(Keys.Space))
+                if (state.IsKeyDown(Game1.controls.Shoot))
                 {
                     bulletList.Add(player.Fire());
                     fireLag = 40;

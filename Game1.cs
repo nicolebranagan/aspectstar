@@ -16,6 +16,7 @@ namespace AspectStar
         SpriteBatch spriteBatch;
 
         public static Textures texCollection;
+        public static Controls controls;
 
         Screen currentMode;
 
@@ -50,7 +51,13 @@ namespace AspectStar
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            // Set default controls
+            Game1.controls = new Controls();
+            controls.Up = Keys.Up;
+            controls.Down = Keys.Down;
+            controls.Left = Keys.Left;
+            controls.Right = Keys.Right;
+            controls.Shoot = Keys.Space;
 
             base.Initialize();
         }
@@ -89,7 +96,7 @@ namespace AspectStar
 
             EnemyDict.build();
 
-            currentMode = new TitleScreen(this, "ASPECT STAR", texCollection.arcadeFont, new Vector2((800 / 2) - (11 * 8), 200));
+            currentMode = new TitleScreen(this);
         }
 
         public void Start()
@@ -163,5 +170,10 @@ namespace AspectStar
         public Texture2D texMouse;
         public Texture2D texBaddog;
         public Texture2D texBirdie;
+    }
+
+    public struct Controls
+    {
+        public Keys Up, Down, Left, Right, Shoot;
     }
 }
