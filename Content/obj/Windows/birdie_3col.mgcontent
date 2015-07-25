@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/birdie_3col.png</SourceFile>
+  <SourceFile>C:/Users/Nicole/Documents/Visual Studio 2015/Projects/AspectStar/AspectStar/Content/birdie_3col.png</SourceFile>
   <SourceTime>2015-07-08T12:02:35.9720062-04:00</SourceTime>
-  <DestFile>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/bin/Windows/birdie_3col.xnb</DestFile>
-  <DestTime>2015-07-08T12:07:36.0397098-04:00</DestTime>
+  <DestFile>C:/Users/Nicole/Documents/Visual Studio 2015/Projects/AspectStar/AspectStar/Content/bin/Windows/birdie_3col.xnb</DestFile>
+  <DestTime>2015-07-25T19:46:56.685258-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T13:14:44-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

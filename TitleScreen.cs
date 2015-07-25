@@ -49,7 +49,7 @@ namespace AspectStar
             switch (runState)
             {
                 case TitleState.Options:
-                    int optOffset = -1;
+                    int optOffset = -3; // Counter for vertical lines
                     WriteText(spriteBatch, "ASPECT STAR OPTIONS", new Vector2((800 / 2) - (19 * 8), 64 + optOffset*16), Color.White);
 
                     optOffset = optOffset + 4;
@@ -72,6 +72,9 @@ namespace AspectStar
                         WriteText(spriteBatch, "SOUND EFFECTS OFF", new Vector2(128, 64 + optOffset * 16), Color.White);
 
                     optOffset = optOffset + 4;
+                    WriteText(spriteBatch, "FULL SCREEN MODE", new Vector2(128, 64 + optOffset * 16), Color.White);
+
+                    optOffset = optOffset + 4;
                     WriteText(spriteBatch, "RETURN TO TITLE", new Vector2(128, 64 + optOffset * 16), Color.White);
 
                     if (this.selection == 0)
@@ -82,11 +85,16 @@ namespace AspectStar
                     else if (this.selection == 1)
                     {
                         // SET CONTROLS
-                        drawCursor(spriteBatch, new Vector2(128 - (4 * 16), 64 + 3 * 16 - 8));
+                        drawCursor(spriteBatch, new Vector2(128 - (4 * 16), 64 + 1 * 16 - 8));
                     }
                     else if (this.selection == 2)
                     {
                         // SOUND EFFECTS
+                        drawCursor(spriteBatch, new Vector2(128 - (4 * 16), 64 + (optOffset - 8) * 16 - 8));
+                    }
+                    else if (this.selection == 3)
+                    {
+                        // FULL SCREEN MODE
                         drawCursor(spriteBatch, new Vector2(128 - (4 * 16), 64 + (optOffset - 4) * 16 - 8));
                     }
 
@@ -169,10 +177,10 @@ namespace AspectStar
                                     this.selection--;
                                 if (state.IsKeyDown(Keys.Down))
                                     this.selection++;
-                                if (this.selection > 2)
+                                if (this.selection > 3)
                                     this.selection = 0;
                                 if (this.selection < 0)
-                                    this.selection = 2;
+                                    this.selection = 3;
                             }
                             else if (state.IsKeyDown(Keys.Enter))
                             {
@@ -189,10 +197,15 @@ namespace AspectStar
                                     // Go into control-setting mode
                                     this.selection = 101;
                                 }
-                                else if (this.selection ==2)
+                                else if (this.selection == 2)
                                 {
                                     // Change sound effects
                                     PlaySound.Enabled = !(PlaySound.Enabled);
+                                }
+                                else if (this.selection == 3)
+                                {
+                                    // Enter/exit full screen
+                                    this.game.ToggleFullScreen();
                                 }
                             }
                         }

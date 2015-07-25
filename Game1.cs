@@ -99,6 +99,12 @@ namespace AspectStar
             currentMode = new TitleScreen(this);
         }
 
+        public void ToggleFullScreen()
+        {
+            graphics.IsFullScreen = !(graphics.IsFullScreen);
+            graphics.ApplyChanges();
+        }
+
         public void Start()
         {
             currentMode = new GameScreen(this);

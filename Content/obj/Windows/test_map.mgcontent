@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/test_map.png</SourceFile>
+  <SourceFile>C:/Users/Nicole/Documents/Visual Studio 2015/Projects/AspectStar/AspectStar/Content/test_map.png</SourceFile>
   <SourceTime>2015-07-07T22:43:51.2915102-04:00</SourceTime>
-  <DestFile>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/bin/Windows/test_map.xnb</DestFile>
-  <DestTime>2015-07-07T22:43:57.0508719-04:00</DestTime>
+  <DestFile>C:/Users/Nicole/Documents/Visual Studio 2015/Projects/AspectStar/AspectStar/Content/bin/Windows/test_map.xnb</DestFile>
+  <DestTime>2015-07-25T19:46:55.9709168-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T13:14:44-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

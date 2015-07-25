@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/pew.wav</SourceFile>
+  <SourceFile>C:/Users/Nicole/Documents/Visual Studio 2015/Projects/AspectStar/AspectStar/Content/pew.wav</SourceFile>
   <SourceTime>2015-07-05T15:55:51.2715345-04:00</SourceTime>
-  <DestFile>C:/Users/Nicole/documents/visual studio 2015/Projects/AspectStar/AspectStar/Content/bin/Windows/pew.xnb</DestFile>
-  <DestTime>2015-07-05T18:09:52.1418129-04:00</DestTime>
+  <DestFile>C:/Users/Nicole/Documents/Visual Studio 2015/Projects/AspectStar/AspectStar/Content/bin/Windows/pew.xnb</DestFile>
+  <DestTime>2015-07-25T19:46:56.3140417-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2015-04-29T13:14:44-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
