@@ -169,20 +169,21 @@ namespace AspectStar
                         if (this.selection < 100)
                         {
                             // Not setting controls
-                            if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.Down))
+                            if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.Down) || 
+                                state.IsKeyDown(Game1.controls.Up) || state.IsKeyDown(Game1.controls.Down))
                             {
                                 // If you add more than two options, make sure that this is changed appropriately
                                 this.controlLag = 16;
-                                if (state.IsKeyDown(Keys.Up))
+                                if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Game1.controls.Up))
                                     this.selection--;
-                                if (state.IsKeyDown(Keys.Down))
+                                if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Game1.controls.Down))
                                     this.selection++;
                                 if (this.selection > 3)
                                     this.selection = 0;
                                 if (this.selection < 0)
                                     this.selection = 3;
                             }
-                            else if (state.IsKeyDown(Keys.Enter))
+                            else if (state.IsKeyDown(Keys.Enter) || state.IsKeyDown(Game1.controls.Shoot))
                             {
                                 PlaySound.Pause();
                                 this.controlLag = 16;
@@ -253,7 +254,7 @@ namespace AspectStar
                     }
                     break;
                 case TitleState.TitleScreen:
-                    if (this.controlLag == 0 && state.IsKeyDown(Keys.Enter))
+                    if (this.controlLag == 0 && (state.IsKeyDown(Keys.Enter) || state.IsKeyDown(Game1.controls.Shoot)))
                     {
                         if (this.selection == 0)
                         {
@@ -268,7 +269,8 @@ namespace AspectStar
                             this.controlLag = 16;
                         }
                     }
-                    else if (this.controlLag == 0 && (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.Down)))
+                    else if (this.controlLag == 0 && (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.Down) ||
+                        state.IsKeyDown(Game1.controls.Up) || state.IsKeyDown(Game1.controls.Down)))
                     {
                         this.controlLag = 16;
                         this.selection++;
